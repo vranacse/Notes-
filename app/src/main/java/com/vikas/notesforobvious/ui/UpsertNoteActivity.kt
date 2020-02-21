@@ -2,11 +2,9 @@ package com.vikas.notesforobvious.ui
 
 import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.vikas.notesforobvious.R
 import kotlinx.android.synthetic.main.activity_upsert_note.*
 
@@ -23,11 +21,20 @@ class UpsertNoteActivity : AppCompatActivity() {
 
 
         if (intent.hasExtra(EXTRA_ID)) {
-            title = "Edit Note"
+            textview_title.text= "Edit Note"
             edit_text_title.setText(intent.getStringExtra(EXTRA_TITLE))
             edit_text_description.setText(intent.getStringExtra(EXTRA_DESCRIPTION))
         } else {
-            title = "Add Note"
+            textview_title.text = "Add Note"
+        }
+
+
+        button_submit.setOnClickListener {
+            saveNote()
+        }
+
+        button_cancel.setOnClickListener {
+            finish()
         }
     }
 
@@ -52,6 +59,8 @@ class UpsertNoteActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
-        saveNote()
+       finish()
     }
+
+
 }

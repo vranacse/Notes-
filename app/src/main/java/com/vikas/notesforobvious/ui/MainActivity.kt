@@ -2,11 +2,9 @@ package com.vikas.notesforobvious.ui
 
 import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -51,8 +49,11 @@ class MainActivity : AppCompatActivity() {
             adapter.submitList(it)
         })
 
-        ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT.or(
-            ItemTouchHelper.RIGHT)) {
+        ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(
+            0, ItemTouchHelper.LEFT.or(
+                ItemTouchHelper.RIGHT
+            )
+        ) {
             override fun onMove(
                 recyclerView: RecyclerView,
                 viewHolder: RecyclerView.ViewHolder,
@@ -78,12 +79,13 @@ class MainActivity : AppCompatActivity() {
                 startActivityForResult(intent, EDIT_NOTE_REQUEST)
             }
         })
+
+        button_delete_all.setOnClickListener {
+            noteViewModel.deleteAllNotes()
+            Toast.makeText(this, "All notes deleted!", Toast.LENGTH_SHORT).show()
+        }
     }
 
-
-
-        //        noteViewModel.deleteAllNotes()
-         //       Toast.makeText(this, "All notes deleted!", Toast.LENGTH_SHORT).show()
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)

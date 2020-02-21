@@ -1,22 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:padding="16dp">
+
+    <TextView
+        android:id="@+id/textview_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_medium_family"
+        android:paddingBottom="16sp"
+        android:text="@string/app_name"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp" />
 
     <EditText
         android:id="@+id/edit_text_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Title"
-        android:inputType="text"/>
+        android:layout_below="@+id/textview_title"
+        android:hint="Title"  
+        android:inputType="text" />
 
     <EditText
         android:id="@+id/edit_text_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_text_title"
+        android:layout_marginTop="10dp"
         android:hint="Description"
-        android:inputType="textMultiLine"/>
-</LinearLayout>
+        android:inputType="textMultiLine" />
+
+    <Button
+        android:id="@+id/button_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/boundary_primarycolor"
+        android:fontFamily="@font/ping_fag_family"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="Submit"
+        android:textColor="@color/colorPrimary" />
+
+    <Button
+        android:id="@+id/button_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button_submit"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/boundary_cancel"
+        android:fontFamily="@font/ping_fag_family"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="Cancel"
+        android:textColor="@color/text_color_1" />
+</RelativeLayout>
