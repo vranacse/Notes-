@@ -1,7 +1,8 @@
-package com.vikas.notesforobvious
+package com.vikas.notesforobvious.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.vikas.notesforobvious.R
 
 class MainActivity : AppCompatActivity() {
 
